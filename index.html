@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Advanced Metronome with Speed Trainer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- MODE PANEL pinned to the left margin, near the top of sequencer -->
+  <div class="left-panel">
+    <div class="modes" id="modesContainer">
+      <!-- Mode selector -->
+      <div>
+        <label for="modeSelect">Mode:</label>
+        <select id="modeSelect">
+          <option value="constant">Constant</option>
+          <option value="byMeasures">By Measures</option>
+        </select>
+      </div>
+
+      <!-- CONSTANT MODE BPM (shown only if mode=constant) -->
+      <div id="constantControls" style="display: none; margin-top: 1rem;">
+        <label for="constantBpmInput">Constant BPM:</label>
+        <input type="number" id="constantBpmInput" value="120" min="1" max="999" />
+      </div>
+
+      <!-- BY MEASURES CONTROLS (shown only if mode=byMeasures) -->
+      <div id="byMeasuresControls" style="display: none; margin-top: 1rem;">
+        <div>
+          <label for="startBpmInput">Start BPM:</label>
+          <input type="number" id="startBpmInput" value="80" min="1" max="999" />
+        </div>
+
+        <div>
+          <label for="endBpmInput">End BPM:</label>
+          <input type="number" id="endBpmInput" value="100" min="1" max="999" />
+        </div>
+
+        <div>
+          <label for="increaseEveryInput">Increase BPM every:</label>
+          <input type="number" id="increaseEveryInput" value="8" min="1" max="999" />
+          <span>measures</span>
+        </div>
+
+        <div>
+          <label for="increaseByInput">By:</label>
+          <input type="number" id="increaseByInput" value="5" min="1" max="999" />
+          <span>BPM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT (centered) -->
+  <div class="main-content">
+
+    <!-- Title -->
+    <h1>Advanced Metronome</h1>
+
+    <!-- LARGE BPM MONITOR (no label) -->
+    <div class="bpm-monitor-container">
+      <input type="text" id="currentBpmMonitor" value="120" readonly />
+    </div>
+
+    <!-- SEQUENCER + ACCENTS -->
+    <div class="sequencer" id="sequencerContainer"></div>
+    <div class="accents" id="accentsContainer"></div>
+
+    <!-- CONTROLS (Beats/Measure + Start/Stop) -->
+    <div class="controls">
+      <div>
+        <label for="beatsPerMeasure">Beats / Measure:</label>
+        <input type="number" id="beatsPerMeasure" value="4" min="1" max="24" />
+      </div>
+
+      <div>
+        <button id="toggleBtn">Start</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

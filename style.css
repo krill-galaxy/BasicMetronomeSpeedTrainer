@@ -1,0 +1,157 @@
+/* DARK THEME */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  color: #ddd;
+  font-family: sans-serif;
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  margin: 2rem 0 1.5rem 0;
+}
+
+/* 1) MODE PANEL pinned to left margin at ~the same vertical level as the sequencer
+   Adjust `top: 25rem;` to your taste */
+.left-panel {
+  position: fixed;   /* pinned to screen, not scrolled */
+  left: 2rem;        /* 2rem from left edge */
+  top: 25rem;        /* Tweak this to line up with the sequencer's top row */
+  width: 340px;
+}
+
+.modes {
+  background-color: #222;
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid #444;
+}
+
+/* 2) MAIN CONTENT: center everything in a fixed max-width container */
+.main-content {
+  max-width: 1000px;
+  margin: 0 auto; /* center horizontally */
+  padding-bottom: 4rem; /* extra space so nothing is cut off at bottom */
+}
+
+/* 3) LARGE BPM MONITOR, no label, triple size */
+.bpm-monitor-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#currentBpmMonitor {
+  width: 300px;
+  text-align: center;
+  background-color: #222;
+  color: #ddd;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  font-size: 4.5rem;
+  font-weight: bold;
+}
+
+/* 4) SEQUENCER & ACCENTS (centered) */
+.sequencer,
+.accents {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 50px);
+  grid-auto-rows: 50px;
+  gap: 1rem;
+
+  max-width: calc(8 * 50px + 7 * 1rem);
+  margin: 0 auto; /* center horizontally */
+
+  justify-items: center;
+  align-items: center;
+  align-content: start;
+  justify-content: center;
+}
+
+/* Extra space so multiple rows won't collide with the controls */
+.sequencer {
+  margin-bottom: 3rem;
+}
+.accents {
+  margin-bottom: 3rem;
+}
+
+/* 5) Controls container (Beats/Measure + Start) also centered */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Label + input spacing */
+label {
+  margin-right: 0.5rem;
+}
+input[type="number"] {
+  width: 60px;
+  text-align: center;
+  margin-left: 0.5rem;
+}
+
+/* Start button style */
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #333;
+  color: #ddd;
+  border: 1px solid #555;
+  border-radius: 4px;
+}
+button:hover {
+  background-color: #444;
+}
+
+/* Beat squares */
+.beat {
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 4px;
+  user-select: none;
+  transition: background-color 0.1s;
+  color: #bbb;
+  border: 1px solid #555;
+}
+.beat.active {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+/* Accent blocks same size as .beat */
+.accent-block {
+  width: 50px;
+  height: 50px;
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-weight: bold;
+}
+
+.accent-block label {
+  font-size: 0.7rem;
+  margin: 0;
+  padding: 0;
+}
+.accent-block input[type="checkbox"] {
+  margin-top: 0.2rem;
+}
